@@ -18,7 +18,7 @@ if __name__ == '__main__':
         hasher = SHA256.new(msg)
         hash_val = hasher.hexdigest()
 
-        if hash_val[0:1] == '0':
+        if hash_val[0:4] == '0000':
             print("The message to be signed is: " + hash_val)
 
             # Generate the signature of the message under RSA signature
