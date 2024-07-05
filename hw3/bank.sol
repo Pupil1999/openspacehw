@@ -68,5 +68,11 @@ contract Bank {
         }
     }
 
-    receive() external payable { }
+    receive() external payable {
+        if( msg.value < 0 )
+            revert();
+        
+        accounts[msg.sender] += msg.value;
+        rankVIP(msg.sender);
+    }
 }
